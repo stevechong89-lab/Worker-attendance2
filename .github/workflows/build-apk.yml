@@ -35,6 +35,11 @@ jobs:
           mkdir project
           unzip -q ./*.zip -d project
 
+       - name: Enable AndroidX
+        run: |
+          echo "android.useAndroidX=true" > project/attendance/gradle.properties
+          echo "android.enableJetifier=true" >> project/attendance/gradle.properties  
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
